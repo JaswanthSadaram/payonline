@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+</head>
+
+<body> 
+   <button id="google-pay-button">Pay through google</button>
+    <script>
+        document.getElementById('google-pay-button').addEventListener('click', function () {
+            redirectToGooglePay();
+        });
+        function redirectToGooglePay() {
+            // Replace <RECEIVER_ID> with the UPI ID or Google Pay merchant ID of the receiver
+            var receiverId = 'jashwanth512@oksbi';
+
+            // Replace <AMOUNT> with the amount you want to pre-fill (e.g., 100 for ₹100)
+            var amount = '<AMOUNT>';
+
+            // Construct the Google Pay URL scheme with the receiver and amount parameters
+            var googlePayUrl = 'upi://pay?pa=' + receiverId + '&pn=Receiver+Name&mc=CURRENCY_CODE&tid=TRANSACTION_ID&tr=TRANSACTION_REFERENCE&tn=Transaction+Note&am=' + amount + '&cu=CURRENCY_CODE';
+
+            // Redirect the user to the Google Pay app
+            window.location.href = googlePayUrl;
+        }
+    </script>
+</body>
+
+</html>
